@@ -1,0 +1,8 @@
+{% extends 'Layout/base.html.twig' %}
+
+{% block body %}
+    {{ form_start(edit_user_type) }}
+    {{ form_rest(edit_user_type) }}
+    <input type="submit">
+    {{ form_end(edit_user_type) }}
+{% endblock body %}
