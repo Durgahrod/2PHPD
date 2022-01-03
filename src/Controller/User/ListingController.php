@@ -11,10 +11,23 @@ use Symfony\Component\Routing\Annotation\Route;
 class ListingController extends AbstractController
 {
     /**
-     * @Route
+     * @Route("/list",name="app_user_list")
      */
-    public function createUser(ManagerRegistry $managerRegistry, Request $request)
+    public function listUser(\Doctrine\Persistence\ManagerRegistry $managerRegistry, Request $request)
     {
-        $user = new User();
+        if ($request->request->get('findBy') !== NULL) {
+            $findBy = $request->request->get('findBy');
+            $users = $managerRegistry->getManager()->getRepository(User::class)->findBy(["username"=>$findBy]);
+            return $this->render('Page/User/list.html.twig', [
+                'value' => $findBy,
+                'users' => $users,
+            ]);
+        }
+        else{
+            $users = $managerRegistry->getManager()->getRepository(User::class)->findAll();
+            return $this->render('Page/User/list.html.twig', [
+                'users' => $users,
+            ]);
+        }
     }
 }
