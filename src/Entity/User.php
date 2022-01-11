@@ -31,6 +31,183 @@ class User
     private string $password;
 
     /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName(string $firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param string $lastName
+     */
+    public function setLastName(string $lastName): void
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getBirthdate(): DateTime
+    {
+        return $this->birthdate;
+    }
+
+    /**
+     * @param DateTime $birthdate
+     */
+    public function setBirthdate(DateTime $birthdate): void
+    {
+        $this->birthdate = $birthdate;
+    }
+
+    /**
+     * @return File
+     */
+    public function getFile(): File
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param File $file
+     */
+    public function setFile(File $file): void
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvatarPath(): string
+    {
+        return $this->avatarPath;
+    }
+
+    /**
+     * @param string $avatarPath
+     */
+    public function setAvatarPath(string $avatarPath): void
+    {
+        $this->avatarPath = $avatarPath;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuota(): int
+    {
+        return $this->quota;
+    }
+
+    /**
+     * @param int $quota
+     */
+    public function setQuota(int $quota): void
+    {
+        $this->quota = $quota;
+    }
+
+//    private string $salt;
+
+//    public function _construct(){
+
+//        $this->salt = base_convert(sha1(uniqid(mt_rand(), true)) 16, 36)
+
+//    }
+
+//    /**
+//    * @return string
+//     */
+//    public function getSalt(): string
+//    {
+//        return $this->salt;
+//    }
+
+
+    /**
      * @Assert\NotBlank(message="Veuillez renseigner un email.")
      * @Assert\Email(message = "L'email n'est pas valide.")
      * @ORM\Column(type="string")
