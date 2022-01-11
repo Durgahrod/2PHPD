@@ -19,13 +19,21 @@ class CreationController extends AbstractController
         $user = new User();
         $form = $this->createForm(CreateUserType::class, $user);
         $form->handleRequest($request);
+        $userComparison = $managerRegistry->getManager()->getRepository(User::class)->findOneBy([
+        //    'username' => $username,
+        //    'email' => $email
+        ]);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $managerRegistry->getManager();
-            $em->persist($user);
-            $em->flush();
+        if ($userComparison){
+            return ('Un utilisateur utilise déjà ces informations.');
+        }else{
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $managerRegistry->getManager();
+                $em->persist($user);
+                $em->flush();
 
-            return $this->redirectToRoute('app_user_list');
+                return $this->redirectToRoute('app_user_list');
+            }
         }
 
         return $this->render('Page/User/create.html.twig', [

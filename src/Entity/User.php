@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
+
 class User
 {
     /**
@@ -20,6 +21,7 @@ class User
 
     /**
      * @Assert\NotBlank(message="Veuillez renseigner un nom d'utilisateur.")
+     * @Assert\NotIdenticalTo()
      * @ORM\Column(type="string")
      */
     private string $username;
@@ -29,6 +31,47 @@ class User
      * @ORM\Column(type="string")
      */
     private string $password;
+
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner un email.")
+     * @Assert\Email(message = "L'email n'est pas valide.")
+     * @ORM\Column(type="string")
+     */
+    private string $email;
+
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner votre prénom.")
+     * @ORM\Column(type="string")
+     */
+    private string $firstName;
+
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner votre nom de famille.")
+     * @ORM\Column(type="string")
+     */
+    private string $lastName;
+
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner votre date de naissance.")
+     * @ORM\Column(type="datetime")
+     */
+    private DateTime $birthdate;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\File", mappedBy="user")
+     */
+    private File $file;
+
+//    /**
+//     * @ORM\Column(type="string")
+//     */
+//    private string $avatarPath;
+
+
+    /**
+     * @ORM\Column(type="int")
+     */
+    private int $quota;
 
     /**
      * @return int
@@ -189,61 +232,4 @@ class User
     {
         $this->quota = $quota;
     }
-
-//    private string $salt;
-
-//    public function _construct(){
-
-//        $this->salt = base_convert(sha1(uniqid(mt_rand(), true)) 16, 36)
-
-//    }
-
-//    /**
-//    * @return string
-//     */
-//    public function getSalt(): string
-//    {
-//        return $this->salt;
-//    }
-
-
-    /**
-     * @Assert\NotBlank(message="Veuillez renseigner un email.")
-     * @Assert\Email(message = "L'email n'est pas valide.")
-     * @ORM\Column(type="string")
-     */
-    private string $email;
-
-    /**
-     * @Assert\NotBlank(message="Veuillez renseigner votre prénom.")
-     * @ORM\Column(type="string")
-     */
-    private string $firstName;
-
-    /**
-     * @Assert\NotBlank(message="Veuillez renseigner votre nom de famille.")
-     * @ORM\Column(type="string")
-     */
-    private string $lastName;
-
-    /**
-     * @Assert\NotBlank(message="Veuillez renseigner votre date de naissance.")
-     * @ORM\Column(type="datetime")
-     */
-    private DateTime $birthdate;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\File", mappedBy="user")
-     */
-    private File $file;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private string $avatarPath;
-
-    /**
-     * @ORM\Column(type="int")
-     */
-    private int $quota;
 }

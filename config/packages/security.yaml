@@ -15,7 +15,7 @@ security:
             security: false
         main:
             lazy: true
-            provider: users_in_memory
+
             logout:
                 path: app_logout
 
