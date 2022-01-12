@@ -21,7 +21,8 @@ class CreateUserType extends AbstractType {
             ->add('_email', EmailType::class)
             ->add('_firstName', TextType::class)
             ->add('_lastName', TextType::class)
-            ->add('_birthdate', DateType::class)
+            ->add('_birthdate', DateType::class,
+                ['label' => 'Birthdate',])
         ;
     }
 

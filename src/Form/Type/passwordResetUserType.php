@@ -3,9 +3,9 @@
 namespace App\Form\Type;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -20,7 +20,7 @@ class passwordResetUserType extends AbstractType
         $builder
             ->add('_firstName', TextType::class)
             ->add('_lastName', TextType::class)
-            ->add('_birthdate', DateTimeType::class)
+            ->add('_birthdate', DateType::class)
             ->add('_password', PasswordType::class)
             ->add('_newPassword', RepeatedType::class, ["type" => PasswordType::class])
         ;

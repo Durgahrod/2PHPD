@@ -3,7 +3,6 @@
 namespace App\Form\Type;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\DateTimeType;
 use phpDocumentor\Reflection\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;

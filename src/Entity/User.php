@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -21,7 +21,6 @@ class User
 
     /**
      * @Assert\NotBlank(message="Veuillez renseigner un nom d'utilisateur.")
-     * @Assert\NotIdenticalTo()
      * @ORM\Column(type="string")
      */
     private string $username;
@@ -53,9 +52,9 @@ class User
 
     /**
      * @Assert\NotBlank(message="Veuillez renseigner votre date de naissance.")
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
-    private DateTime $birthdate;
+    private Date $birthdate;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\File", mappedBy="user")
@@ -170,17 +169,17 @@ class User
     }
 
     /**
-     * @return DateTime
+     * @return Date
      */
-    public function getBirthdate(): DateTime
+    public function getBirthdate(): Date
     {
         return $this->birthdate;
     }
 
     /**
-     * @param DateTime $birthdate
+     * @param Date $birthdate
      */
-    public function setBirthdate(DateTime $birthdate): void
+    public function setBirthdate(Date $birthdate): void
     {
         $this->birthdate = $birthdate;
     }
