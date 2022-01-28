@@ -4,6 +4,7 @@ namespace App\Form\Type;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -22,7 +23,7 @@ class EditUserType extends AbstractType
             ->add('_email', EmailType::class)
             ->add('_firstName', TextType::class)
             ->add('_lastName', TextType::class)
-            ->add('_birthdate', DateType::class)
+            ->add('_birthdate', DateTimeType::class)
         ;
     }
 

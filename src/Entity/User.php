@@ -5,10 +5,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ */
 
 class User
 {
@@ -33,7 +37,7 @@ class User
 
     /**
      * @Assert\NotBlank(message="Veuillez renseigner un email.")
-     * @Assert\Email(message = "L'email n'est pas valide.")
+     * @Assert\Email(message="L'email n'est pas valide.")
      * @ORM\Column(type="string")
      */
     private string $email;
@@ -51,10 +55,15 @@ class User
     private string $lastName;
 
     /**
-     * @Assert\NotBlank(message="Veuillez renseigner votre date de naissance.")
-     * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="Veuillez renseigner votre date de naissance au format JJ/MM/AAAA.")
+     * @ORM\Column(type="string")
      */
-    private Date $birthdate;
+    private string $birthdate;
+
+   // /**
+   //  * @ORM\OneToOne(targetEntity="App\Entity\Avatar", cascade={"persist", "remove"})
+   //  */
+   // private Avatar $avatar;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\File", mappedBy="user")
@@ -67,10 +76,10 @@ class User
 //    private string $avatarPath;
 
 
-    /**
-     * @ORM\Column(type="int")
-     */
-    private int $quota;
+ //   /**
+ //    * @ORM\Column(type="integer")
+ //    */
+ //   private int $quota;
 
     /**
      * @return int
@@ -169,17 +178,17 @@ class User
     }
 
     /**
-     * @return Date
+     * @return string
      */
-    public function getBirthdate(): Date
+    public function getBirthdate(): string
     {
         return $this->birthdate;
     }
 
     /**
-     * @param Date $birthdate
+     * @param string $birthdate
      */
-    public function setBirthdate(Date $birthdate): void
+    public function setBirthdate(string $birthdate): void
     {
         $this->birthdate = $birthdate;
     }
@@ -230,5 +239,21 @@ class User
     public function setQuota(int $quota): void
     {
         $this->quota = $quota;
+    }
+
+    /**
+     * @return Avatar
+     */
+    public function getAvatar(): Avatar
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param Avatar $avatar
+     */
+    public function setAvatar(Avatar $avatar): void
+    {
+        $this->avatar = $avatar;
     }
 }
