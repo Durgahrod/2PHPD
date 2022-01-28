@@ -10,17 +10,17 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EditAvatarType extends AbstractType {
 
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder
-            ->add('Avatar', FileType::class)
-        ;
-    }
+//    public function buildForm(FormBuilderInterface $builder, array $options)
+//    {
+//        $builder
+//           ->add('Avatar', FileType::class)
+//        ;
+//    }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => User::class,
-        ]);
-    }
+//    public function configureOptions(OptionsResolver $resolver)
+//    {
+//        $resolver->setDefaults([
+//            'data_class' => User::class,
+//        ]);
+//    }
 }

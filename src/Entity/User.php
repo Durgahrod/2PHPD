@@ -108,7 +108,7 @@ class User
     /**
      * @param string $username
      */
-    public function setUsername(string $username): void
+    public function setUsername(string $username): string
     {
         $this->username = $username;
     }
@@ -124,7 +124,7 @@ class User
     /**
      * @param string $password
      */
-    public function setPassword(string $password): void
+    public function setPassword(string $password): string
     {
         $this->password = $password;
     }

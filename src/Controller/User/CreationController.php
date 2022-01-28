@@ -31,7 +31,7 @@ class CreationController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('app_user_list');
+            return $this->redirectToRoute('app_user_connect');
         }
 
         return $this->render('Page/User/create.html.twig', [
