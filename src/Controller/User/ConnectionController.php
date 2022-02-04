@@ -13,7 +13,7 @@ class ConnectionController extends AbstractController
     /**
      * @Route("/connect", name="app_user_connect")
      */
-    public function editUser(User $user, Request $request, ManagerRegistry $managerRegistry)
+    public function ConnectUser(User $user, Request $request, ManagerRegistry $managerRegistry)
     {
         if ($request->request->get('username') !== null) {
             $user

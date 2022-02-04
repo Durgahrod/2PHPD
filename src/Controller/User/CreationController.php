@@ -21,17 +21,15 @@ class CreationController extends AbstractController
     public function createUser(ManagerRegistry $managerRegistry, Request $request)
     {
         $user = new User();
-        //$user->setAvatar((new Avatar())->SetPath("C:\Users\atref\OneDrive\Images\shit\Marie\1469836341969.png");
         $form = $this->createForm(CreateUserType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form -> isValid()) {
-            //var_dump($user);
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $managerRegistry->getManager();
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('app_user_connect');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('Page/User/create.html.twig', [

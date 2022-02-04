@@ -108,9 +108,11 @@ class User
     /**
      * @param string $username
      */
-    public function setUsername(string $username): string
+    public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
     }
 
     /**
@@ -124,9 +126,11 @@ class User
     /**
      * @param string $password
      */
-    public function setPassword(string $password): string
+    public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
     }
 
     /**
