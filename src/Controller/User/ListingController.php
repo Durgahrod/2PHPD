@@ -17,7 +17,7 @@ class ListingController extends AbstractController
     /**
      * @Route("/product/new", name="app_file")
      */
-    public function new(Request $request, SluggerInterface $slugger)
+    public function list(Request $request, SluggerInterface $slugger)
     {
         $product = new File();
         $form = $this->createForm(FileType::class, $product);

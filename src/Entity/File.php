@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 
+
 class File {
 
     /**
@@ -30,7 +31,7 @@ class File {
         return $this->id;
     }
 
-    public function getPaah(): string
+    public function getPath(): string
     {
         return $this->path;
     }
