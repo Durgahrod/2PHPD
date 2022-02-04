@@ -4,25 +4,20 @@ namespace App\Form\Type;
 
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class passwordResetUserType extends AbstractType
+class PasswordForgottenUserType extends AbstractController
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('_firstName', TextType::class)
-            ->add('_lastName', TextType::class)
-            ->add('_birthdate', DateType::class)
-            ->add('_password', PasswordType::class)
-            ->add('_newPassword', RepeatedType::class, ["type" => PasswordType::class])
+            ->add('_email', EmailType::class)
+            ->add('_birthdate', TextType::class)
         ;
     }
 
@@ -32,5 +27,4 @@ class passwordResetUserType extends AbstractType
             'data_class' => User::class,
         ]);
     }
-
 }

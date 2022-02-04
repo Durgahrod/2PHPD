@@ -16,9 +16,7 @@ class EmailCheckUserType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('_password', RepeatedType::class, ['type' => PasswordType::class])
-        ;
+        $builder->add('_password', RepeatedType::class, ['type' => PasswordType::class]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

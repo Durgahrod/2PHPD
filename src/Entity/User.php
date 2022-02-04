@@ -3,9 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Validator\Constraints\Date;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -56,14 +53,14 @@ class User
 
     /**
      * @Assert\NotBlank(message="Veuillez renseigner votre date de naissance au format JJ/MM/AAAA.")
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="datetime")
      */
-    private string $birthdate;
+    private \DateTime $birthdate;
 
-   // /**
-   //  * @ORM\OneToOne(targetEntity="App\Entity\Avatar", cascade={"persist", "remove"})
-   //  */
-   // private Avatar $avatar;
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Avatar", cascade={"persist", "remove"})
+     */
+    private Avatar $avatar;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\File", mappedBy="user")
@@ -184,7 +181,7 @@ class User
     /**
      * @return string
      */
-    public function getBirthdate(): string
+    public function getBirthdate(): \DateTime
     {
         return $this->birthdate;
     }
@@ -192,7 +189,7 @@ class User
     /**
      * @param string $birthdate
      */
-    public function setBirthdate(string $birthdate): void
+    public function setBirthdate(\DateTime $birthdate): void
     {
         $this->birthdate = $birthdate;
     }
