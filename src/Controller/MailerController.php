@@ -28,6 +28,6 @@ class MailerController extends AbstractController
 
         $mailer->send($email);
 
-        return $this->redirectToRoute('app_user_list');
+        return $this->redirectToRoute('app_user_login');
         }
     }

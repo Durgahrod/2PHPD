@@ -22,7 +22,7 @@ class User
 
     /**
      * @Assert\NotBlank(message="Veuillez renseigner un nom d'utilisateur.")
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=TRUE)
      */
     private string $username;
 
@@ -35,7 +35,7 @@ class User
     /**
      * @Assert\NotBlank(message="Veuillez renseigner un email.")
      * @Assert\Email(message="L'email n'est pas valide.")
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=TRUE)
      */
     private string $email;
 
