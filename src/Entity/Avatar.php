@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use http\Message;
-use phpDocumentor\Reflection\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
@@ -25,7 +23,7 @@ class Avatar
      */
     private string $path;
 
-    private uploadedFile $file;
+    private UploadedFile $file;
     /**
      * @return int
      */
