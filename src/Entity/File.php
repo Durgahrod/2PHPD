@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\User;
 
 /**
  * @ORM\Entity
@@ -25,6 +26,27 @@ class File {
      * @ORM\Column(type="string")
      */
     private string $type;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
+     */
+    private User $user;
+
+    /**
+     * @return User
+     */
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
 
 
     public function getId()

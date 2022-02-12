@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -27,8 +28,7 @@ class User
     private string $username;
 
     /**
-     * @Assert\NotBlank(message="Veuillez renseigner un mot de passe.")
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=TRUE)
      */
     private string $password;
 
@@ -65,7 +65,7 @@ class User
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\File", mappedBy="user")
      */
-    private File $file;
+    private Collection $files;
 
 //    /**
 //     * @ORM\Column(type="string")
@@ -179,7 +179,7 @@ class User
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getBirthdate(): \DateTime
     {
@@ -187,7 +187,7 @@ class User
     }
 
     /**
-     * @param string $birthdate
+     * @param \DateTime $birthdate
      */
     public function setBirthdate(\DateTime $birthdate): void
     {
@@ -195,19 +195,19 @@ class User
     }
 
     /**
-     * @return File
+     * @return Collection
      */
-    public function getFile(): File
+    public function getFiles(): Collection
     {
-        return $this->file;
+        return $this->files;
     }
 
     /**
-     * @param File $file
+     * @param Collection $files
      */
-    public function setFile(File $file): void
+    public function setFiles(Collection $files): void
     {
-        $this->file = $file;
+        $this->files = $files;
     }
 
     /**

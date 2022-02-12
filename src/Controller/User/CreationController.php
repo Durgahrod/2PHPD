@@ -29,7 +29,8 @@ class CreationController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('app_login');
+            $email = $user->getEmail();
+            return $this->redirectToRoute("email_check", ["email" => $email]);
         }
 
         return $this->render('Page/User/create.html.twig', [

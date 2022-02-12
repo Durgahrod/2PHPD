@@ -3,8 +3,8 @@
 namespace App\Controller\User;
 
 use App\Entity\User;
+use App\Form\Type\EditionPasswordUserType;
 use Doctrine\Persistence\ManagerRegistry;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,21 +12,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class EditionPasswordController extends AbstractController
 {
     /**
-     * @Route ("/editionPassword/{email}")
+     * @Route("/editionPassword/{email}", "app_user_edition_password")
      */
-    public function editPassword(User $user, Request $request, ManagerRegistry $managerRegistry)
+    public function editionPassword (ManagerRegistry $managerRegistry, Request $request, User $user)
     {
-        if ($request->request->get('username') !== null) {
-            $user->setPassword($request->request->get('password'));
+        $form = $this->createForm(EditionPasswordUserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $managerRegistry->getManager();
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('app_user_connect');
+            return $this->redirectToRoute('app_user_login');
         }
 
-        return $this->render('Page/User/edit.html.twig', [
-            'user' => $user,
+        return $this->render('Page/User/passwordReset.html.twig', [
+            'edition_password_user_type' => $form->createView(),
         ]);
     }
 }
