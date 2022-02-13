@@ -2,14 +2,12 @@
 
 namespace App\Controller\User;
 
-use App\Entity\Avatar;
 use App\Entity\User;
 use App\Form\Type\CreateUserType;
 use Doctrine\Persistence\ManagerRegistry;
-use PDO;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -25,6 +23,7 @@ class CreationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $managerRegistry->getManager();
             $em->persist($user);
             $em->flush();

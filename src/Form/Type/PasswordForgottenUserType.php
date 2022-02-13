@@ -16,8 +16,8 @@ class PasswordForgottenUserType extends AbstractController
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('_email', EmailType::class)
-            ->add('_birthdate', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('birthdate', TextType::class)
         ;
     }
 

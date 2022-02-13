@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller\User;
-// src/Controller/ProductController.php
 
 use App\Entity\File;
 use App\Form\Type\FileType;
@@ -12,12 +11,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class ListingController extends AbstractController
+class FilesController extends AbstractController
 {
     /**
-     * @Route("/product/new", name="app_file")
+     * @Route("/files/email", name="app_files")
      */
-    public function list(Request $request, SluggerInterface $slugger)
+    public function files(Request $request, SluggerInterface $slugger)
     {
         $product = new File();
         $form = $this->createForm(FileType::class, $product);
