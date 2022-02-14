@@ -17,6 +17,10 @@ class EditionPasswordController extends AbstractController
      */
     public function editionPassword (ManagerRegistry $managerRegistry, Request $request, User $user, UserPasswordHasherInterface $passwordHasher)
     {
+        if ($request->request->get('password') !== null) {
+            $user->setPassword(null);
+        }
+
         $form = $this->createForm(EditionPasswordUserType::class, $user);
         $form->handleRequest($request);
 

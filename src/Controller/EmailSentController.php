@@ -11,7 +11,7 @@ class EmailSentController extends AbstractController
      * @Route("/emailSent", name = "email sent")
      */
     public function emailSent(){
-        return "Check your emails.";
+        return "Vérifiez vos emails.";
     }
 
 }
