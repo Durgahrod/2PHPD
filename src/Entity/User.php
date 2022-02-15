@@ -81,6 +81,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
  //   private int $quota;
 
     /**
+     * @ORM\Column(type="array")
+     */
+    private array $roles;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -281,6 +286,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getRoles(): array
     {
-        // TODO: Implement getRoles() method.
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+        return $this;
     }
 }

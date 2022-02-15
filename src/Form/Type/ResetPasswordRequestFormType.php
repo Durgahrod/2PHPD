@@ -2,7 +2,9 @@
 
 namespace App\Form\Type;
 
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,6 +23,7 @@ class ResetPasswordRequestFormType extends AbstractType
                     ]),
                 ],
             ])
+            ->add('birthdate', DateTimeType::class)
         ;
     }
 

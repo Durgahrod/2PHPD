@@ -39,7 +39,7 @@
         Sign in
     </button>
    <br>
-    <a href="/create">Création</a>
-    <a href="/forgotten">Mot de passe oublié</a>
+    <a href={{ path('app_user_create') }}>Création</a>
+    <a href={{ path('app_forgot_password_request') }}>Mot de passe oublié</a>
 </form>
 {% endblock %}
