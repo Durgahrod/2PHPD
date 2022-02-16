@@ -1,15 +1,14 @@
-@font-face {
+/*@font-face {
     font-family: 'poppins';
     src: url(/font/poppins.ttf);
 }
 
 body{
     font-family: 'poppins';
-}
+}*/
 
 a{
     margin: 30px;
-    color: white;
 }
 
 
@@ -40,14 +39,14 @@ a{
     justify-content: center;
     align-items: center;
     padding: 13%;
+    color: #0475ba;
 }
 
 .formulaire{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 8%;
+    padding: 12%;
 }
+
+
 
 
 #profil{
