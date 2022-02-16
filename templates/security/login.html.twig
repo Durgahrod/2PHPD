@@ -1,26 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'Layout/base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    <form action="{{ path('app_user_login') }}" method="post">
-        <label for="username">Email:</label>
+    <form action="{{ path('home') }}" method="post">
+
+        <label for="username">Username:</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="_password"/>
 
-        {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"/> #}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         <button type="submit">login</button>
    <br>
     <a href={{ path('app_user_create') }}>Création</a>
     <a href={{ path('app_forgot_password_request') }}>Mot de passe oublié</a>
-</form>
+    </form>
 {% endblock %}
