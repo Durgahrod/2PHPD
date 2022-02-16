@@ -24,9 +24,9 @@ security:
         main:
             lazy: true
 
-            logout:
-                path: app_logout
-            custom_authenticator: App\Security\LoginFromAuthenticator
+            form_login :
+                login_path: app_user_login
+                check_path: app_user_login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
