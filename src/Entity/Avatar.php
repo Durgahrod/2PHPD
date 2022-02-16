@@ -24,6 +24,7 @@ class Avatar
     private string $path;
 
     private UploadedFile $file;
+
     /**
      * @return int
      */
@@ -48,27 +49,46 @@ class Avatar
     /**
      * @param string $path
      */
-    public function setPath(string $path): File
+    public function setPath(string $path): self
     {
         $this->path = $path;
 
+        return $this;
     }
 
     /**
-     * @return string
+     * @return UploadedFile
      */
-    public function getGreetingMessage(): string
+    public function getFile(): UploadedFile
     {
-        return $this->greetingMessage;
+        return $this->file;
     }
 
     /**
-     * @param string $greetingMessage
+     * @param UploadedFile $file
      */
-    public function setGreetingMessage(string $greetingMessage): string
+    public function setFile(UploadedFile $file)
     {
-        $this->greetingMessage = $greetingMessage;
+        $this->file = $file;
+
+        return $this;
     }
+
+//    /**
+//     * @return string
+//     */
+//   public function getGreetingMessage(): string
+//    {
+//        return $this->greetingMessage;
+//    }
+
+//    /**
+//     * @param string $greetingMessage
+//     */
+//    public function setGreetingMessage(string $greetingMessage): string
+//    {
+//       $this->greetingMessage = $greetingMessage;
+//    }
 
 
 }

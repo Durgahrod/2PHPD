@@ -69,10 +69,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private Collection $files;
 
-//    /**
-//     * @ORM\Column(type="string")
-//     */
-//    private string $avatarPath;
+    /**
+     * @ORM\Column(type="string", nullable=TRUE)
+     */
+    private string $avatarPath;
 
 
  //   /**
