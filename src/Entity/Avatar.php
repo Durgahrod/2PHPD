@@ -19,6 +19,11 @@ class Avatar
     private int $id;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    public $name;
+
+    /**
      * @ORM\Column(type="string")
      */
     private string $path;
@@ -32,19 +37,6 @@ class Avatar
     {
         return $this->id;
     }
-
-    /**
-     * @return string
-     */
-    public function getPath(): string
-    {
-        return $this->path;
-    }
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private string $greetingMessage;
 
     /**
      * @param string $path
@@ -71,24 +63,35 @@ class Avatar
     {
         $this->file = $file;
 
-        return $this;
     }
 
-//    /**
-//     * @return string
-//     */
-//   public function getGreetingMessage(): string
-//    {
-//        return $this->greetingMessage;
-//    }
+    public function getAbsolutePath()
+    {
+        return null === $this->path
+            ? null
+            : $this->getUploadRootDir().'/'.$this->path;
+    }
 
-//    /**
-//     * @param string $greetingMessage
-//     */
-//    public function setGreetingMessage(string $greetingMessage): string
-//    {
-//       $this->greetingMessage = $greetingMessage;
-//    }
+    public function getWebPath()
+    {
+        return null === $this->path
+            ? null
+            : $this->getUploadDir().'/'.$this->path;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/documents';
+    }
 
 
 }

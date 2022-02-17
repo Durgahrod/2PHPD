@@ -4,6 +4,7 @@ namespace App\Controller\Avatar;
 
 use App\Entity\Avatar;
 use App\Form\Type\EditAvatarType;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -16,7 +17,7 @@ class EditionAvatarController extends AbstractController
     /**
      * @Route("/avatar/edit", name="app_avatar_edit")
      */
-    public function new(Request $request, SluggerInterface $slugger)
+    public function new(Request $request, SluggerInterface $slugger, ManagerRegistry $managerRegistry)
     {
         $avatar = new Avatar();
         $form = $this->createForm(EditAvatarType::class, $avatar);
@@ -25,6 +26,10 @@ class EditionAvatarController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $brochureFile */
             $brochureFile = $form->get('avatar')->getData();
+
+            $em = $managerRegistry -> getManager();
+            $em->persist($avatar);
+            $em->flush();
 
             // this condition is needed because the 'brochure' field is not required
             // so the PDF file must be processed only when a file is uploaded
@@ -51,7 +56,7 @@ class EditionAvatarController extends AbstractController
 
             // ... persist the $product variable or any other work
 
-            return $this->redirectToRoute('app_user_login');
+            return $this->redirectToRoute('app_user_home');
         }
 
         return $this->renderForm('Page/Avatar/edit.html.twig', [
