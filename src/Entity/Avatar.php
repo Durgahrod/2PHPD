@@ -41,10 +41,6 @@ class Avatar
         return $this->path;
     }
 
-//    /**
-//     * @ORM\Column(type="string")
-//     */
-//    private string $greetingMessage;
 
     /**
      * @param string $path
@@ -73,22 +69,6 @@ class Avatar
 
         return $this;
     }
-
-//    /**
-//     * @return string
-//     */
-//   public function getGreetingMessage(): string
-//    {
-//        return $this->greetingMessage;
-//    }
-
-//    /**
-//     * @param string $greetingMessage
-//     */
-//    public function setGreetingMessage(string $greetingMessage): string
-//    {
-//       $this->greetingMessage = $greetingMessage;
-//    }
 
 
 }

@@ -3,8 +3,15 @@
 
 {% block body %}
 
-    <a href={{ path("app_avatar_edit") }}> Edit avatar </a>
-    <a href={{ path("app_user_login") }}> Connexion </a>
-    <a href={{ path("app_user_logout") }}> Deconnexion </a>
+    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <button><a href={{ path("app_user_login") }}> Connexion </a></button>
+    {% endif %}
+
+    <button><a href={{ path("app_user_create") }}> Création </a></button>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <button><a href={{ path("app_avatar_edit") }}> Edit avatar </a></button>
+        <button><a href={{ path("app_user_logout") }}> Déconnexion </a></button>
+    {% endif %}
 
 {% endblock body %}

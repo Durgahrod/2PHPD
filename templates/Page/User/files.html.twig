@@ -4,5 +4,9 @@
 
 
 
-    <a href="{{ path('app_user_edit', {id: user.id}) }}">Modifier</a>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_user_edit') }}">Modifier</a>
+        <button><a href={{ path("app_user_logout") }}> Déconnexion </a></button>
+    {% endif %}
 {% endblock body %}
