@@ -3,10 +3,13 @@
 {% block body %}
 
 
-
+    {{ form_start(upload_file_type) }}
+    {{ form_row(upload_file_type) }}
+    <input type="submit">
+    {{ form_end(upload_file_type) }}
 
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a href="{{ path('app_user_edit') }}">Modifier</a>
+        <button><a href={{ path('app_avatar_edit') }}> Modifier </a></button>
         <button><a href={{ path("app_user_logout") }}> Déconnexion </a></button>
     {% endif %}
 {% endblock body %}

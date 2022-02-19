@@ -12,6 +12,7 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <button><a href={{ path("app_avatar_edit") }}> Edit avatar </a></button>
         <button><a href={{ path("app_user_logout") }}> Déconnexion </a></button>
+        <button><a href={{ path("app_file_upload") }}> Upload </a></button>
     {% endif %}
 
 {% endblock body %}
