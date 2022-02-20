@@ -1,0 +1,48 @@
+
+.navbar{
+    padding: 40px;
+    background-color: #0475ba;
+    color: whitesmoke;
+    display: table;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.v-align {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.navbar-toggler{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+a{
+    margin: 30px;
+    color: white;
+}
+
+.intro{
+    padding: 10%;
+}
+
+footer{
+    background-color: #0475ba;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    color: whitesmoke;
+}
+
+@media (max-width: 1000px){
+    .intro{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+    }
+}

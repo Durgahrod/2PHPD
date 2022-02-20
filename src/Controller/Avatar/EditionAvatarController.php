@@ -19,7 +19,7 @@ class EditionAvatarController extends AbstractController
 {
 
     /**
-     * @Route("/avatar/edit", name="app_avatar_edit")
+     * @Route("/avatar/edit/{id}", name="app_avatar_edit")
      */
     public function editAvatar(Request $request, SluggerInterface $slugger, ManagerRegistry $managerRegistry, Security $security)
     {
@@ -34,6 +34,7 @@ class EditionAvatarController extends AbstractController
             if ($brochureFile) {
                 $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
+                $trueFilename = $safeFilename . "." . $brochureFile->guessExtension();
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
 
                 try {
@@ -47,7 +48,7 @@ class EditionAvatarController extends AbstractController
                 $user = $security->getUser();
 
                 $avatar->setPath($avatarPath);
-                $avatar->setName($originalFilename);
+                $avatar->setName($trueFilename);
 
                 $user->setAvatarPath($avatarPath);
 

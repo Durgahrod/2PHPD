@@ -1,0 +1,58 @@
+a{
+    margin: 30px;
+}
+
+.navbar{
+    padding: 40px;
+    background-color: #0475ba;
+    color: whitesmoke;
+    display: table;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.v-align {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.navbar-toggler{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.formulaire{
+    padding: 6%;
+}
+
+.idea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+.title{
+    padding: 2%;
+}
+
+footer{
+    background-color: #0475ba;
+    padding: 40px;
+}
+
+
+@media (max-width: 1150px){
+    .formulaire{
+        padding: 11%;
+    }
+}

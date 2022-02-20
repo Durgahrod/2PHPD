@@ -1,6 +1,5 @@
 {% extends 'Layout/base.html.twig' %}
 
-
 {% block body %}
 
     {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -8,10 +7,14 @@
     {% endif %}
     <button><a href={{ path("app_user_create") }}> Création </a></button>
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <button><a href={{ path("app_avatar_edit") }}> Edit avatar </a></button>
-        <button><a href={{ path("app_user_logout") }}> Déconnexion </a></button>
-        <button><a href={{ path("app_file_list") }}> List files </a></button>
-        <button><a href={{ path("app_file_upload") }}> Upload file</a></button>
+        {% for user in users %}
+            <button><a href={{ path("app_user_edit", {id: user.id}) }}> Edit user </a></button>
+            <button><a href={{ path("app_avatar_edit", {id: user.id}) }}> Edit avatar </a></button>
+            <button><a href={{ path("app_user_logout") }}> Déconnexion </a></button>
+            <button><a href={{ path("app_file_list") }}> List files </a></button>
+            <button><a href={{ path("app_file_upload") }}> Upload file</a></button>
+        {% endfor %}
     {% endif %}
 
 {% endblock body %}
+

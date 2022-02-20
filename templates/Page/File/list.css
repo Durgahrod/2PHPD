@@ -1,0 +1,54 @@
+.navbar{
+    padding: 40px;
+    background-color: #0475ba;
+    color: whitesmoke;
+    display: table;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.v-align {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.navbar-toggler{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    display: flex;
+    color: white;
+    padding: 10px;
+}
+
+
+.upload{
+    padding: 10%;
+}
+
+footer{
+    background-color: #0475ba;
+    padding: 40px;
+}
+
+
+@media (max-width: 1200px){
+    .upload{
+        padding: 12%;
+    }
+}
+
+@media (max-width: 1000px){
+    .upload{
+        padding: 15%;
+    }
+}
+
+@media (max-width: 750px){
+    .upload{
+        padding: 20%;
+    }
+}

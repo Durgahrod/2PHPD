@@ -1,0 +1,41 @@
+.navbar{
+    padding: 40px;
+    background-color: #0475ba;
+    color: whitesmoke;
+    display: table;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.v-align {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.navbar-toggler{
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulaire{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 7%;
+}
+
+footer{
+    background-color: #0475ba;
+    padding: 40px;
+}
+
+
+@media (max-width: 1100px){
+    .formulaire{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 10%;
+    }
+
+}
