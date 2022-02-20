@@ -20,10 +20,33 @@ class File {
     /**
      * @ORM\Column(type="string")
      */
-    private string $path;
+    private string $name;
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
 
     /**
      * @ORM\Column(type="string")
+     */
+    private string $path;
+
+    /**
+     * @ORM\Column(type="string", nullable=TRUE)
      */
     private string $type;
 

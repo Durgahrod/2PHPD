@@ -21,11 +21,8 @@ class EditionAvatarController extends AbstractController
     /**
      * @Route("/avatar/edit", name="app_avatar_edit")
      */
-    public function editAvatar(Request $request, SluggerInterface $slugger, ManagerRegistry $managerRegistry, User $user, Security $security)
+    public function editAvatar(Request $request, SluggerInterface $slugger, ManagerRegistry $managerRegistry, Security $security)
     {
-        $userRepo = $managerRegistry->getManager()->getRepository(User::class);
-        $user = $security->getUser();
-
         $avatar = new Avatar();
         $form = $this->createForm(EditAvatarType::class, $avatar);
         $form->handleRequest($request);
@@ -46,16 +43,25 @@ class EditionAvatarController extends AbstractController
                     );
                 } catch (FileException $e) {}
 
-                $avatarPath = ('public/uploads/avatars/' . $newFilename);
+                $avatarPath = ($this->getParameter('avatar_directory') . "/" . $newFilename);
+                $user = $security->getUser();
+
                 $avatar->setPath($avatarPath);
+                $avatar->setName($originalFilename);
 
                 $user->setAvatarPath($avatarPath);
-//                $user = $this->security->getUser();
-//                $user->setAvatarPath($avatarPath);
+
 
                 $em = $managerRegistry -> getManager();
                 $em->persist($avatar);
+                $em->persist($user);
                 $em->flush();
+
+//                $avatarId = $avatar->getId();
+//                $user->setAvatar($avatarId);
+
+//                $em->persist($user);
+//                $em->flush();
             }
             return $this->redirectToRoute('home');
         }
@@ -63,13 +69,4 @@ class EditionAvatarController extends AbstractController
             'edit_avatar_type' => $form,
         ]);
     }
-//    /**
-//     * @var Security
-//     */
-//    private $security;
-
-//    public function __construct(Security $security)
-//    {
-//        $this->security = $security;
-//    }
 }

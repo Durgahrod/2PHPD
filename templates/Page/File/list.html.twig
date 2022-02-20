@@ -1,0 +1,27 @@
+{% extends 'Layout/base.html.twig' %}
+
+{% block body %}
+    <table>
+        <thead>
+        <tr>
+            <th>Filename</th>
+            <th>Path</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for file in files %}
+            <tr>
+                <td>{{ file.name }}</td>
+                <td>{{ file.path }}</td>
+                <td>
+                    <a href= {{ path('app_file_download', { id: file.id }) }}><span class="fa fa-download">Download</span></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <button><a href="{{ path('app_file_upload') }}">Upload</a></button>
+    <button><a href= {{ path('home')}}>Accueil</a></button>
+
+{% endblock %}

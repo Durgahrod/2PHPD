@@ -228,9 +228,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @param string $avatarPath
      */
-    public function setAvatarPath(string $avatarPath): void
+    public function setAvatarPath(string $avatarPath): self
     {
         $this->avatarPath = $avatarPath;
+
+        return $this;
     }
 
     /**
