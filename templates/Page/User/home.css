@@ -38,6 +38,20 @@ footer{
     color: whitesmoke;
 }
 
+.icone{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+i{
+    color: #0475ba;
+}
+
+.fab:hover, .fas:hover{
+    color: rgb(166, 0, 172);
+}
+
 @media (max-width: 1000px){
     .intro{
         display: flex;
