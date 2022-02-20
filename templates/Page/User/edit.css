@@ -1,25 +1,8 @@
-/*@font-face {
-    font-family: 'poppins';
-    src: url(/font/poppins.ttf);
-}
-
-body{
-    font-family: 'poppins';
-}*/
 
 .navbar{
     padding: 40px;
     background-color: #0475ba;
     color: whitesmoke;
-    display: table;
-    justify-content: space-between;
-    width: 100%;
-}
-
-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 
@@ -31,15 +14,6 @@ form{
 .navbar-toggler{
     display: flex;
     justify-content: space-between;
-}
-
-.lien{
-    margin: 30px;
-}
-
-a{
-    margin: 30px;
-    color: white;
 }
 
 
@@ -65,76 +39,7 @@ a{
     align-items: center;
 }
 
-img{
-    width: 15%;
-    border-radius: 50%;
-}
-
-.moi{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#profil{
+footer{
     background-color: #0475ba;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 40px;
-    color: whitesmoke;
-}
-
-
-#experience{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    color: #0475ba;
-}
-
-#formation{
-    background-color: #0475ba;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    color: whitesmoke;
-}
-
-
-
-.icone{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-}
-
-i{
-    color: lightslategray;
-    padding: 40px;
-}
-
-.fab:hover, .fas:hover{
-    color: #0475ba;
-}
-
-@media (max-width: 1000px){
-    .intro{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px;
-    }
-
-    img{
-        width: 25%;
-        border-radius: 50%;
-    }
 }

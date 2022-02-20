@@ -1,16 +1,6 @@
-/*@font-face {
-    font-family: 'poppins';
-    src: url(/font/poppins.ttf);
-}
-
-body{
-    font-family: 'poppins';
-}*/
-
 a{
     margin: 30px;
 }
-
 
 .navbar{
     padding: 40px;
@@ -20,7 +10,6 @@ a{
     justify-content: space-between;
     width: 100%;
 }
-
 
 .v-align {
     display: table-cell;
@@ -32,10 +21,6 @@ a{
     justify-content: space-between;
 }
 
-
-.text{
-    color: #0475ba;
-}
 
 .formulaire{
     padding: 6%;
@@ -60,28 +45,14 @@ a{
     padding: 2%;
 }
 
-
-#profil{
+footer{
     background-color: #0475ba;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 40px;
-    color: whitesmoke;
 }
 
 
-@media (max-width: 1000px){
-    .intro{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px;
-    }
-
-    img{
-        width: 25%;
-        border-radius: 50%;
+@media (max-width: 1150px){
+    .formulaire{
+        padding: 11%;
     }
 }
