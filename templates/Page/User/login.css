@@ -34,19 +34,31 @@ a{
 
 
 .text{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 13%;
     color: #0475ba;
 }
 
 .formulaire{
-    padding: 12%;
+    padding: 6%;
 }
 
+.idea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+.title{
+    padding: 2%;
+}
 
 
 #profil{

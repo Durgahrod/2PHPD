@@ -42,9 +42,6 @@ a{
     color: white;
 }
 
-h4{
-    color: #0475ba;
-}
 
 .formulaire{
     display: flex;
@@ -52,6 +49,21 @@ h4{
     align-items: center;
     padding: 40px;
 }   
+
+.needs-validation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 82%;
+}
+
+.col-12{
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 img{
     width: 15%;
